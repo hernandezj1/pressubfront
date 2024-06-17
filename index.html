@@ -68,18 +68,39 @@
     <div class="form-container">
       <h1 class="text-center">Envíe su Receta</h1>
       <!-- Form for uploading prescription -->
+      <!-- Form for uploading prescription -->
       <form id="prescriptionForm" enctype="multipart/form-data">
         <div class="form-group">
           <label for="name">Nombre:</label>
           <input type="text" id="name" name="name" class="form-control" required>
         </div>
         <div class="form-group">
+          <label for="lastName">Apellido:</label>
+          <input type="text" id="lastName" name="lastName" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="dob">Fecha de Nacimiento:</label>
+          <input type="date" id="dob" name="dob" class="form-control" required>
+        </div>
+        <div class="form-group">
           <label for="phoneNumber">Número de Teléfono:</label>
           <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" required>
         </div>
         <div class="form-group">
+          <label for="email">Correo Electrónico:</label>
+          <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="repeatOrNew" name="repeatOrNew">
+          <label class="form-check-label" for="repeatOrNew">Repetición o Nueva Receta</label>
+        </div>
+        <div class="form-group">
           <label for="prescriptionInfo">Información de la Receta:</label>
           <textarea id="prescriptionInfo" name="prescriptionInfo" class="form-control" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="insurancePhoto">Foto del Plan Médico (opcional):</label>
+          <input type="file" id="insurancePhoto" name="insurancePhoto" class="form-control-file" accept="image/*">
         </div>
         <div class="form-group">
           <label for="prescription">Foto de la Receta o Frasco para la Repetición:</label>
