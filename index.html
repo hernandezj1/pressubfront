@@ -58,7 +58,7 @@
           <textarea id="prescriptionInfo" name="prescriptionInfo" class="form-control" required></textarea>
         </div>
         <div class="form-group">
-          <label for="prescription">Foto de la Receta o Frasco para la Repeticíon: </label>
+          <label for="prescription">Foto de la Receta o Frasco para la Repetición:</label>
           <input type="file" id="prescription" name="prescription" class="form-control-file" accept="image/*" required>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Enviar</button>
@@ -80,12 +80,57 @@
         body: formData,
       });
 
-
       if (response.ok) {
-        alert('Su orden ha sido enviada a Farmacia Caney. Gracias por su patrocino.');
+        alert('Su orden ha sido enviada a Farmacia Caney. Gracias por su patrocinio.');
+        window.location.reload(); // Reload the page to clear the form
       } else {
-        alert('Hubo un error al subir y enviar la orden de receta. Por favor contactenos al 787-755-7845.');
+        alert('Hubo un error al subir y enviar la orden de receta. Por favor contáctenos al 787-755-7845.');
       }
+    });
+
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+      .then(registration => {
+        console.log('Service Worker registered with scope:', registration.scope);
+      })
+      .catch(error => {
+        console.log('Service Worker registration failed:', error);
+      });
+    }
+
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Prevent the mini-infobar from appearing on mobile
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      deferredPrompt = e;
+      // Update UI notify the user they can install the PWA
+      const installButton = document.createElement('button');
+      installButton.textContent = 'Instalar Aplicación';
+      installButton.classList.add('btn', 'btn-primary', 'btn-block', 'mt-3');
+      installButton.style.display = 'block';
+      document.querySelector('.form-container').appendChild(installButton);
+
+      installButton.addEventListener('click', (e) => {
+        // Hide the app provided install promotion
+        installButton.style.display = 'none';
+        // Show the install prompt
+        deferredPrompt.prompt();
+        // Wait for the user to respond to the prompt
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted the install prompt');
+          } else {
+            console.log('User dismissed the install prompt');
+          }
+          deferredPrompt = null;
+        });
+      });
+    });
+
+    window.addEventListener('appinstalled', (evt) => {
+      console.log('a2hs', 'installed');
     });
   </script>
 </body>
