@@ -93,11 +93,11 @@
         <div class="form-group">
           <label>Marque una:</label><br>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="repeat" name="repeatOrNew" value="Repetición">
+            <input class="form-check-input" type="checkbox" id="repeat" name="repeatOrNew" value="Repetición" disabled>
             <label class="form-check-label" for="repeat">Repetición</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="new" name="repeatOrNew" value="Nueva Receta">
+            <input class="form-check-input" type="checkbox" id="new" name="repeatOrNew" value="Nueva Receta" disabled>
             <label class="form-check-label" for="new">Nueva Receta</label>
           </div>
         </div>
@@ -145,6 +145,27 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
+    // Function to get URL parameters
+    function getUrlParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    // Get the 'type' parameter from the URL
+    const type = getUrlParam('type');
+
+    // Automatically select the checkbox based on the 'type' parameter
+    if (type === 'repeticion') {
+      document.getElementById('repeat').checked = true;
+    } else if (type === 'nueva') {
+      document.getElementById('new').checked = true;
+    }
+
+    // Disable both checkboxes to prevent the user from making changes
+    document.getElementById('repeat').disabled = true;
+    document.getElementById('new').disabled = true;
+
+    // Handle form submission
     document.getElementById('prescriptionForm').addEventListener('submit', async (e) => {
       e.preventDefault(); // Prevent default form submission
       
