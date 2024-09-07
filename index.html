@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recetas Caney</title>
+
+  <!-- Manifest for PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/hernandezj1/pressubfront/main/Farmacias-Caney-en-Puerto-Rico%20(3).jpg">
+  <!-- Android/Chrome Icon -->
+  <link rel="icon" sizes="192x192" href="https://raw.githubusercontent.com/hernandezj1/pressubfront/main/Farmacias-Caney-en-Puerto-Rico%20(3).jpg">
+
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+    .header-img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+    .button-container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    .btn-custom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      padding: 10px;
+      width: 48%;
+    }
+    .btn-custom i {
+      margin-right: 10px;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header Image -->
+    <div class="text-center">
+      <img src="https://farmaciaspr.lainfoweb.com/wp-content/uploads/2023/07/Farmacias-Caney-en-Puerto-Rico.jpg" alt="Header Image" class="header-img">
+    </div>
+
+    <!-- Button Container -->
+    <div class="button-container">
+      <!-- Button for New Prescription -->
+      <a href="/form.html?type=nueva" class="btn btn-primary btn-custom">
+        <i class="fa-solid fa-file-prescription"></i> Enviar Nueva Receta
+      </a>
+
+      <!-- Button for Repetición -->
+      <a href="/form.html?type=repeticion" class="btn btn-secondary btn-custom">
+        <i class="fa-solid fa-prescription-bottle-medical"></i> Solicitar Repetición
+      </a>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
