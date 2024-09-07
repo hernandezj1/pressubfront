@@ -38,6 +38,7 @@
     }
     .button-container {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-around;
       margin-top: 20px;
     }
@@ -48,10 +49,14 @@
       font-size: 18px;
       padding: 10px;
       width: 48%;
+      margin-bottom: 10px;
     }
     .btn-custom i {
       margin-right: 10px;
       font-size: 24px;
+    }
+    .btn-wide {
+      width: 100%;
     }
   </style>
 </head>
@@ -72,6 +77,26 @@
       <!-- Button for Repetición -->
       <a href="https://hernandezj1.github.io/pressubfront/form.html?type=repeticion" class="btn btn-secondary btn-custom">
         <i class="fa-solid fa-prescription-bottle-medical"></i> Solicitar Repetición
+      </a>
+    </div>
+
+    <!-- Additional Buttons -->
+    <div class="button-container">
+      <!-- Button for Identificar Pastilla -->
+      <a href="/pillid" class="btn btn-primary btn-custom">
+        <i class="fa-solid fa-pills"></i> Identifique su Pastilla
+      </a>
+
+      <!-- Button for Entrega a Domicilio -->
+      <a href="/delivery" class="btn btn-secondary btn-custom">
+        <i class="fa-solid fa-car-side"></i> Entrega a su Domicilio
+      </a>
+    </div>
+
+    <!-- Wide Button -->
+    <div class="button-container">
+      <a href="/teleconsulta" class="btn btn-primary btn-wide">
+        <i class="fa-solid fa-user-doctor"></i> Teleconsulta Médica
       </a>
     </div>
   </div>
